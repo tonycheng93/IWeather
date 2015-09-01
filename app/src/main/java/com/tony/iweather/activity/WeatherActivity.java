@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.tony.iweather.R;
+import com.tony.iweather.service.AutoUpdateService;
 import com.tony.iweather.util.HttpCallbackListener;
 import com.tony.iweather.util.HttpUtil;
 import com.tony.iweather.util.Utility;
@@ -163,8 +164,11 @@ public class WeatherActivity extends Activity implements View.OnClickListener {
         temp2Text.setText(sp.getString("temp2",""));
         weatherDespText.setText(sp.getString("weather_desp",""));
         publishText.setText("今天" + sp.getString("publish_time","") + "发布");
-        currentDateText.setText(sp.getString("current_date",""));
+        currentDateText.setText(sp.getString("current_date", ""));
         weatherInfoLayout.setVisibility(View.VISIBLE);
         cityNameText.setVisibility(View.VISIBLE);
+
+        Intent intent= new Intent(WeatherActivity.this, AutoUpdateService.class);
+        startService(intent);
     }
 }
