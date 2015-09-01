@@ -15,8 +15,6 @@ import com.tony.iweather.util.HttpUtil;
 import com.tony.iweather.util.Utility;
 
 public class AutoUpdateService extends Service {
-    public AutoUpdateService() {
-    }
 
     @Override
     public IBinder onBind(Intent intent) {
